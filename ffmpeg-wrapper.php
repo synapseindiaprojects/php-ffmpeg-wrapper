@@ -1,5 +1,5 @@
 <?php
-
+require_once("ffmpeg-config.php");
 require_once("ffmpeg-utils.php");
 require_once("ffmpeg-parameter.php");
 require_once("ffmpeg-video.php");
@@ -8,9 +8,7 @@ require_once("ffmpeg-video-filter.php");
 require_once("ffmpeg-filter-complex.php");
 require_once("ffmpeg-presets.php");
 
-define("DEFAULT_FFMPEG_PATH", "/usr/local/bin/ffmpeg");
-define("DEFAULT_FFPROBE_PATH", "/usr/local/bin/ffprobe");
-define("FFMPEG_WRAPPER_DEBUG_PRINTS", true);
+
 
 class ffmpeg_wrapper {
 
@@ -419,7 +417,7 @@ class ffmpeg_wrapper {
 		}
 
 		if (FFMPEG_WRAPPER_DEBUG_PRINTS) {
-			// echo "most common crop: " . $common_crop . PHP_EOL;
+			 echo "most common crop: " . $common_crop . PHP_EOL;
 		}
 
 		// check if crop is needed:
@@ -430,12 +428,12 @@ class ffmpeg_wrapper {
 		$crop_ratio = $frame_size[0] / $frame_size[1];
 
 		if (FFMPEG_WRAPPER_DEBUG_PRINTS) {
-			// echo "input - width  = " . $info["width"] . PHP_EOL;
-			// echo "input - height = " . $info["height"] . PHP_EOL;
-			// echo "input - aspect ratio = " . $ratio . PHP_EOL;
-			// echo "crop frame - width  = " . $frame_size[0] . PHP_EOL;
-			// echo "crop frame - heigth = " . $frame_size[1] . PHP_EOL;
-			// echo "crop frame - aspect ratio = " . $crop_ratio . PHP_EOL;
+			 echo "input - width  = " . $info["width"] . PHP_EOL;
+			 echo "input - height = " . $info["height"] . PHP_EOL;
+			 echo "input - aspect ratio = " . $ratio . PHP_EOL;
+			 echo "crop frame - width  = " . $frame_size[0] . PHP_EOL;
+			 echo "crop frame - heigth = " . $frame_size[1] . PHP_EOL;
+			 echo "crop frame - aspect ratio = " . $crop_ratio . PHP_EOL;
 		}
 
 		if ($frame_size[0] != $info["width"] || $frame_size[1] != $info["height"]) {
